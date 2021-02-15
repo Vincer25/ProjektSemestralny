@@ -24,6 +24,13 @@ namespace ProjektSemestralny
         public ScoreWindow()
         {
             InitializeComponent();
+            ComboBoxes();
+        }
+
+        private void ComboBoxes()
+        {
+            TurnamentComboBox.ItemsSource = db.Turnament.Select(u => u.TurnamentName).ToList();
+            CompetitionComboBox.ItemsSource = db.Competitions.Select(u => u.CompetitionName).ToList();
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)

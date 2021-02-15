@@ -38,7 +38,7 @@ namespace ProjektSemestralny
             Competitions competitions = new Competitions();
 
             competitions.Cut = ShortBox.Text.Trim();
-            competitions.Cut = NameBox.Text.Trim();
+            competitions.CompetitionName = NameBox.Text.Trim();
 
             db.Competitions.Add(competitions);
             db.SaveChanges();
