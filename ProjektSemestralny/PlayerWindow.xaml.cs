@@ -19,9 +19,57 @@ namespace ProjektSemestralny
     /// </summary>
     public partial class PlayerWindow : Window
     {
+        DatabaseEntities db = new DatabaseEntities();
+
         public PlayerWindow()
         {
             InitializeComponent();
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            MainWindow mainWindow = new MainWindow();
+            mainWindow.Show();
+            this.Close();
+        }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            Players players = new Players();
+
+            players.PlayerName = PlayerNameBox.Text.Trim();
+            players.PlayerSecondname = PlayerSecondNameBox.Text.Trim();
+            players.Club = PlayerClubBox.Text.Trim();
+            players.LicenseNumber = PlayerLicenseBox.Text.Trim();
+            players.PhoneNumber = PlayerPhoneNumberBox.Text.Trim();
+            players.Email = PlayerEmailBox.Text.Trim();
+
+            db.Players.Add(players);
+            db.SaveChanges();
+            this.playersDataGrid.ItemsSource = db.Players.ToList();
+
+            PlayerNameBox.Text = "";
+            PlayerSecondNameBox.Text = "";
+            PlayerClubBox.Text = "";
+            PlayerLicenseBox.Text = "";
+            PlayerPhoneNumberBox.Text = "";
+            PlayerEmailBox.Text = "";
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+
+            ProjektSemestralny.DatabaseDataSet databaseDataSet = ((ProjektSemestralny.DatabaseDataSet)(this.FindResource("databaseDataSet")));
+            // Załaduj dane do tabeli Players. Możesz modyfikować ten kod w razie potrzeby.
+            ProjektSemestralny.DatabaseDataSetTableAdapters.PlayersTableAdapter databaseDataSetPlayersTableAdapter = new ProjektSemestralny.DatabaseDataSetTableAdapters.PlayersTableAdapter();
+            databaseDataSetPlayersTableAdapter.Fill(databaseDataSet.Players);
+            System.Windows.Data.CollectionViewSource playersViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("playersViewSource")));
+            playersViewSource.View.MoveCurrentToFirst();
+        }
+
+        private void PlayerEmailBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
         }
     }
 }

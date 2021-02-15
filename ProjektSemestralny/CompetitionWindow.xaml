@@ -1,0 +1,27 @@
+﻿<Window x:Class="ProjektSemestralny.CompetitionWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ProjektSemestralny"
+        mc:Ignorable="d"
+        Title="CompetitionWindow" Height="450" Width="800" Loaded="Window_Loaded">
+    <Window.Resources>
+        <local:DatabaseDataSet x:Key="databaseDataSet"/>
+        <CollectionViewSource x:Key="competitionsViewSource" Source="{Binding Competitions, Source={StaticResource databaseDataSet}}"/>
+    </Window.Resources>
+    <Grid DataContext="{StaticResource competitionsViewSource}">
+        <TextBlock HorizontalAlignment="Left" Margin="49,52,0,0" TextWrapping="Wrap" Text="Skrót konkurencji" VerticalAlignment="Top" Height="28" Width="141" FontWeight="Bold" FontSize="16"/>
+        <TextBlock HorizontalAlignment="Left" Margin="49,85,0,0" TextWrapping="Wrap" Text="Nazwa Konkurencji" VerticalAlignment="Top" Height="28" Width="158" FontWeight="Bold" FontSize="16"/>
+        <TextBox x:Name="ShortBox" HorizontalAlignment="Left" Height="28" Margin="212,52,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="228" FontSize="16"/>
+        <TextBox x:Name="NameBox" HorizontalAlignment="Left" Height="28" Margin="212,85,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="228" FontSize="16"/>
+        <Button Content="GO B" HorizontalAlignment="Left" Height="47" Margin="288,230,0,0" VerticalAlignment="Top" Width="152" Click="Button_Click_1"/>
+        <Button Content="Button" HorizontalAlignment="Left" Height="47" Margin="62,230,0,0" VerticalAlignment="Top" Width="172" Click="Button_Click_2"/>
+        <DataGrid x:Name="competitionsDataGrid" AutoGenerateColumns="False" EnableRowVirtualization="True" ItemsSource="{Binding}" Margin="499,10,10,9.5" RowDetailsVisibilityMode="VisibleWhenSelected">
+            <DataGrid.Columns>
+                <DataGridTextColumn x:Name="cutColumn" Binding="{Binding Cut}" Header="Cut" Width="50"/>
+                <DataGridTextColumn x:Name="competitionNameColumn" Binding="{Binding CompetitionName}" Header="Competition Name" Width="200"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Window>

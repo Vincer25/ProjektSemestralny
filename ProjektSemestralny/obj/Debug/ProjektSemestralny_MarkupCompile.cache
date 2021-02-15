@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 D:\C#\ProjektSemestralny\ProjektSemestralny\App.xaml
-11151548125
+5942654332
 41432446814
-13663382250
+17-682254946
 18684307580
-MainWindow.xaml;
+CompetitionWindow.xaml;MainWindow.xaml;PlayerWindow.xaml;ScoreWindow.xaml;TurnamentWindow.xaml;
 
-True
+False
 

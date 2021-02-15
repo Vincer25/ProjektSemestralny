@@ -82,6 +82,9 @@
     <Compile Include="Competitions.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="CompetitionWindow.xaml.cs">
+      <DependentUpon>CompetitionWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="DatabaseDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -110,6 +113,10 @@
     <Compile Include="TurnamentWindow.xaml.cs">
       <DependentUpon>TurnamentWindow.xaml</DependentUpon>
     </Compile>
+    <Page Include="CompetitionWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

@@ -5,8 +5,36 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProjektSemestralny"
         mc:Ignorable="d"
-        Title="PlayerWindow" Height="450" Width="800">
-    <Grid>
-        
+        Title="PlayerWindow" Height="600" Width="1300" Loaded="Window_Loaded">
+    <Window.Resources>
+        <local:DatabaseDataSet x:Key="databaseDataSet"/>
+        <CollectionViewSource x:Key="playersViewSource" Source="{Binding Players, Source={StaticResource databaseDataSet}}"/>
+    </Window.Resources>
+    <Grid DataContext="{StaticResource playersViewSource}">
+        <Button x:Name="ExitButton" Content="GO B" HorizontalAlignment="Left" Height="44" Margin="262,357,0,0" VerticalAlignment="Top" Width="124" Click="Button_Click_1"/>
+        <TextBlock HorizontalAlignment="Left" Margin="28,42,0,0" TextWrapping="Wrap" Text="Imię" VerticalAlignment="Top" Height="28" Width="100" FontWeight="Bold" FontSize="16"/>
+        <Button x:Name="SaveButton" Content="Save Button" HorizontalAlignment="Left" Height="44" Margin="72,357,0,0" VerticalAlignment="Top" Width="124" Click="Button_Click_2"/>
+        <TextBlock HorizontalAlignment="Left" Margin="28,86,0,0" TextWrapping="Wrap" Text="Nazwisko" VerticalAlignment="Top" Height="28" Width="100" FontWeight="Bold" FontSize="16"/>
+        <TextBlock HorizontalAlignment="Left" Margin="28,133,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="28" Width="100" FontWeight="Bold" FontSize="16"><Run Text="Klub"/><LineBreak/><Run/></TextBlock>
+        <TextBlock HorizontalAlignment="Left" Margin="28,177,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="28" Width="124" FontWeight="Bold" FontSize="16"><Run Text="Numer Licencji"/><LineBreak/><Run/></TextBlock>
+        <TextBlock HorizontalAlignment="Left" Margin="28,222,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="42" Width="124" FontWeight="Bold" FontSize="16"><Run Text="Numer Telefonu"/><LineBreak/><Run/></TextBlock>
+        <TextBlock HorizontalAlignment="Left" Margin="28,269,0,0" TextWrapping="Wrap" Text="E-mail" VerticalAlignment="Top" Height="28" Width="100" FontWeight="Bold" FontSize="16"/>
+        <TextBox x:Name="PlayerEmailBox" HorizontalAlignment="Left" Height="28" Margin="170,269,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="228" FontSize="16" TextChanged="PlayerEmailBox_TextChanged"/>
+        <TextBox x:Name="PlayerPhoneNumberBox" HorizontalAlignment="Left" Height="28" Margin="170,222,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="228" FontSize="16"/>
+        <TextBox x:Name="PlayerLicenseBox" HorizontalAlignment="Left" Height="28" Margin="170,177,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="228" FontSize="16"/>
+        <TextBox x:Name="PlayerClubBox" HorizontalAlignment="Left" Height="28" Margin="170,133,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="228" FontSize="16"/>
+        <TextBox x:Name="PlayerSecondNameBox" HorizontalAlignment="Left" Height="28" Margin="170,86,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="228" FontSize="16"/>
+        <TextBox x:Name="PlayerNameBox" HorizontalAlignment="Left" Height="28" Margin="170,42,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="228" FontSize="16"/>
+        <DataGrid x:Name="playersDataGrid" AutoGenerateColumns="False" EnableRowVirtualization="True" ItemsSource="{Binding}" Margin="454,0,10,20.5" RowDetailsVisibilityMode="VisibleWhenSelected">
+            <DataGrid.Columns>
+                <DataGridTextColumn x:Name="idColumn" Binding="{Binding Id}" Header="Id" IsReadOnly="True" Width="SizeToHeader"/>
+                <DataGridTextColumn x:Name="playerNameColumn" Binding="{Binding PlayerName}" Header="Player Name" Width= "100"/>
+                <DataGridTextColumn x:Name="playerSecondnameColumn" Binding="{Binding PlayerSecondname}" Header="Player Secondname" Width="200"/>
+                <DataGridTextColumn x:Name="clubColumn" Binding="{Binding Club}" Header="Club" Width="100"/>
+                <DataGridTextColumn x:Name="licenseNumberColumn" Binding="{Binding LicenseNumber}" Header="License Number" Width="100"/>
+                <DataGridTextColumn x:Name="phoneNumberColumn" Binding="{Binding PhoneNumber}" Header="Phone Number" Width="100"/>
+                <DataGridTextColumn x:Name="emailColumn" Binding="{Binding Email}" Header="Email" Width="200"/>
+            </DataGrid.Columns>
+        </DataGrid>
     </Grid>
 </Window>

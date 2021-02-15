@@ -5,8 +5,37 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProjektSemestralny"
         mc:Ignorable="d"
-        Title="ScoreWindow" Height="450" Width="800">
-    <Grid>
-        
+        Title="ScoreWindow" Height="600" Width="1200" Loaded="Window_Loaded">
+    <Window.Resources>
+        <local:DatabaseDataSet x:Key="databaseDataSet"/>
+        <CollectionViewSource x:Key="scoreViewSource" Source="{Binding Score, Source={StaticResource databaseDataSet}}"/>
+    </Window.Resources>
+    <Grid DataContext="{StaticResource scoreViewSource}">
+        <Button Content="GO B" HorizontalAlignment="Left" Height="42" Margin="123,453,0,0" VerticalAlignment="Top" Width="184" Click="Button_Click_1"/>
+        <TextBlock HorizontalAlignment="Left" Margin="38,48,0,0" TextWrapping="Wrap" Text="Nazwa Zawodów" VerticalAlignment="Top" Height="28" Width="133" FontWeight="Bold" FontSize="16"/>
+        <TextBox x:Name="ScoreTextBox" HorizontalAlignment="Left" Height="28" Margin="199,147,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="228" FontSize="16"/>
+        <ComboBox x:Name="TurnamentComboBox" HorizontalAlignment="Left" Height="28" Margin="199,48,0,0" VerticalAlignment="Top" Width="228"/>
+        <TextBlock HorizontalAlignment="Left" Margin="38,81,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="28" Width="133" FontWeight="Bold" FontSize="16"><Run Text="Konkurencja"/><LineBreak/><Run/></TextBlock>
+        <TextBlock HorizontalAlignment="Left" Margin="38,114,0,0" TextWrapping="Wrap" Text="Numer Startowy" VerticalAlignment="Top" Height="28" Width="133" FontWeight="Bold" FontSize="16"/>
+        <TextBlock HorizontalAlignment="Left" Margin="38,147,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="28" Width="133" FontWeight="Bold" FontSize="16"><Run Text="Wynik"/><LineBreak/><Run/></TextBlock>
+        <TextBox x:Name="PlayerTextBox" HorizontalAlignment="Left" Height="28" Margin="199,114,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="228" FontSize="16"/>
+        <ComboBox x:Name="CompetitionComboBox" HorizontalAlignment="Left" Height="28" Margin="199,81,0,0" VerticalAlignment="Top" Width="228"/>
+        <Button Content="Wykonaj" HorizontalAlignment="Left" Height="42" Margin="123,274,0,0" VerticalAlignment="Top" Width="184" Click="Button_Click_2"/>
+        <TextBox x:Name="XTextBox" HorizontalAlignment="Left" Height="28" Margin="199,180,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="228" FontSize="16" RenderTransformOrigin="0.555,0.48"/>
+        <TextBlock HorizontalAlignment="Left" Margin="38,180,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="28" Width="133" FontWeight="Bold" FontSize="16" Text="X"/>
+        <TextBox x:Name="TimeTextBox" HorizontalAlignment="Left" Height="28" Margin="199,213,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="228" FontSize="16"/>
+        <TextBlock HorizontalAlignment="Left" Margin="38,213,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="28" Width="133" FontWeight="Bold" FontSize="16"><Run Text="Czas"/><LineBreak/><Run/><LineBreak/><Run/></TextBlock>
+        <DataGrid x:Name="scoreDataGrid" AutoGenerateColumns="False" EnableRowVirtualization="True" ItemsSource="{Binding}" Margin="462,10,10,10.5" RowDetailsVisibilityMode="VisibleWhenSelected">
+            <DataGrid.Columns>
+                <DataGridTextColumn x:Name="idColumn" Binding="{Binding Id}" Header="Id" IsReadOnly="True" Width="SizeToHeader"/>
+                <DataGridTextColumn x:Name="turnamentColumn" Binding="{Binding Turnament}" Header="Turnament" Width="120"/>
+                <DataGridTextColumn x:Name="competitionColumn" Binding="{Binding Competition}" Header="Competition" Width="SizeToHeader"/>
+                <DataGridTextColumn x:Name="playerColumn" Binding="{Binding Player}" Header="Player" Width="SizeToHeader"/>
+                <DataGridTextColumn x:Name="playerScoreColumn" Binding="{Binding PlayerScore}" Header="Player Score" Width="SizeToHeader"/>
+                <DataGridTextColumn x:Name="xColumn" Binding="{Binding X}" Header="X" Width="SizeToHeader"/>
+                <DataGridTextColumn x:Name="timeColumn" Binding="{Binding Time}" Header="Time" Width="SizeToHeader"/>
+                <DataGridTextColumn x:Name="finalScoreColumn" Binding="{Binding FinalScore}" Header="Final Score" Width="SizeToHeader"/>
+            </DataGrid.Columns>
+        </DataGrid>
     </Grid>
 </Window>
