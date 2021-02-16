@@ -60,11 +60,11 @@ namespace ProjektSemestralny
                                 .SingleOrDefault());
 
                 score.Competition = Convert.ToString(db.Competitions
-                .Where(s => s.CompetitionName == CompetitionComboBox.SelectedItem.ToString())
-                .Select(u => u.Cut)
-                .SingleOrDefault());
+                                .Where(s => s.CompetitionName == CompetitionComboBox.SelectedItem.ToString())
+                                .Select(u => u.Cut)
+                                .SingleOrDefault());
             }
-            
+
             if (PlayerTextBox.Text == "" || ScoreTextBox.Text == "")
             {
                 stopInsert = true;
@@ -72,18 +72,27 @@ namespace ProjektSemestralny
             }
             else
             {
-                stopInsert = false;
-                score.Player = Convert.ToInt32(PlayerTextBox.Text.Trim());
-                score.PlayerScore = Convert.ToInt32(ScoreTextBox.Text.Trim());
-
-                if (TimeTextBox.Text != "")
+                int playerNumber = Convert.ToInt32(PlayerTextBox.Text);
+                if (db.Players.Any(o => o.Id == playerNumber))
                 {
-                    decimal playerTime = Convert.ToDecimal(TimeTextBox.Text);
-                    score.Time = playerTime;
-                    if (playerTime != 0)
-                        score.FinalScore = Convert.ToInt32(ScoreTextBox.Text.Trim()) / playerTime;
-                    else
-                        score.FinalScore = 0;
+                    stopInsert = false;
+                    score.Player = Convert.ToInt32(PlayerTextBox.Text.Trim());
+                    score.PlayerScore = Convert.ToInt32(ScoreTextBox.Text.Trim());
+
+                    if (TimeTextBox.Text != "")
+                    {
+                        decimal playerTime = Convert.ToDecimal(TimeTextBox.Text);
+                        score.Time = playerTime;
+                        if (playerTime != 0)
+                            score.FinalScore = Convert.ToInt32(ScoreTextBox.Text.Trim()) / playerTime;
+                        else
+                            score.FinalScore = 0;
+                    }
+                }
+                else
+                {
+                    stopInsert = true;
+                    MessageBox.Show("Numer startowy nie istnieje w bazie", "Uwaga");
                 }
             }
 
