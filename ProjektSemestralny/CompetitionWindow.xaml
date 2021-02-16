@@ -15,12 +15,12 @@
         <TextBlock HorizontalAlignment="Left" Margin="49,85,0,0" TextWrapping="Wrap" Text="Nazwa Konkurencji" VerticalAlignment="Top" Height="28" Width="158" FontWeight="Bold" FontSize="16"/>
         <TextBox x:Name="ShortBox" HorizontalAlignment="Left" Height="28" Margin="212,52,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="228" FontSize="16"/>
         <TextBox x:Name="NameBox" HorizontalAlignment="Left" Height="28" Margin="212,85,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="228" FontSize="16"/>
-        <Button Content="Powrót" HorizontalAlignment="Left" Height="47" Margin="288,230,0,0" VerticalAlignment="Top" Width="152" Click="Button_Click_1"/>
-        <Button Content="Zapisz" HorizontalAlignment="Left" Height="47" Margin="62,230,0,0" VerticalAlignment="Top" Width="172" Click="Button_Click_2"/>
+        <Button Content="Powrót" HorizontalAlignment="Left" Height="47" Margin="49,200,0,0" VerticalAlignment="Top" Width="152" Click="Button_Click_1" RenderTransformOrigin="0.716,0.545"/>
+        <Button Content="Zapisz" HorizontalAlignment="Left" Height="47" Margin="263,200,0,0" VerticalAlignment="Top" Width="152" Click="Button_Click_2"/>
         <DataGrid x:Name="competitionsDataGrid" AutoGenerateColumns="False" EnableRowVirtualization="True" ItemsSource="{Binding}" Margin="499,10,10,9.5" RowDetailsVisibilityMode="VisibleWhenSelected">
             <DataGrid.Columns>
-                <DataGridTextColumn x:Name="cutColumn" Binding="{Binding Cut}" Header="Cut" Width="50"/>
-                <DataGridTextColumn x:Name="competitionNameColumn" Binding="{Binding CompetitionName}" Header="Competition Name" Width="200"/>
+                <DataGridTextColumn x:Name="cutColumn" Binding="{Binding Cut}" Header="Skrót" Width="50"/>
+                <DataGridTextColumn x:Name="competitionNameColumn" Binding="{Binding CompetitionName}" Header="Nazwa Konkurencji" Width="200"/>
             </DataGrid.Columns>
         </DataGrid>
     </Grid>

@@ -27,13 +27,13 @@
         <TextBox x:Name="PlayerNameBox" HorizontalAlignment="Left" Height="28" Margin="170,42,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="228" FontSize="16"/>
         <DataGrid x:Name="playersDataGrid" AutoGenerateColumns="False" EnableRowVirtualization="True" ItemsSource="{Binding}" Margin="454,0,10,20.5" RowDetailsVisibilityMode="VisibleWhenSelected">
             <DataGrid.Columns>
-                <DataGridTextColumn x:Name="idColumn" Binding="{Binding Id}" Header="Id" IsReadOnly="True" Width="SizeToHeader"/>
-                <DataGridTextColumn x:Name="playerNameColumn" Binding="{Binding PlayerName}" Header="Player Name" Width= "100"/>
-                <DataGridTextColumn x:Name="playerSecondnameColumn" Binding="{Binding PlayerSecondname}" Header="Player Secondname" Width="200"/>
-                <DataGridTextColumn x:Name="clubColumn" Binding="{Binding Club}" Header="Club" Width="100"/>
-                <DataGridTextColumn x:Name="licenseNumberColumn" Binding="{Binding LicenseNumber}" Header="License Number" Width="100"/>
-                <DataGridTextColumn x:Name="phoneNumberColumn" Binding="{Binding PhoneNumber}" Header="Phone Number" Width="100"/>
-                <DataGridTextColumn x:Name="emailColumn" Binding="{Binding Email}" Header="Email" Width="200"/>
+                <DataGridTextColumn x:Name="idColumn" Binding="{Binding Id}" Header="Numer Startowy" IsReadOnly="True" Width="SizeToHeader"/>
+                <DataGridTextColumn x:Name="playerNameColumn" Binding="{Binding PlayerName}" Header="Imię" Width= "100"/>
+                <DataGridTextColumn x:Name="playerSecondnameColumn" Binding="{Binding PlayerSecondname}" Header="Nazwisko" Width="200"/>
+                <DataGridTextColumn x:Name="clubColumn" Binding="{Binding Club}" Header="Klub" Width="100"/>
+                <DataGridTextColumn x:Name="licenseNumberColumn" Binding="{Binding LicenseNumber}" Header="Numer Licencji" Width="100"/>
+                <DataGridTextColumn x:Name="phoneNumberColumn" Binding="{Binding PhoneNumber}" Header="Numer Telefonu" Width="100"/>
+                <DataGridTextColumn x:Name="emailColumn" Binding="{Binding Email}" Header="E-mail" Width="200"/>
             </DataGrid.Columns>
         </DataGrid>
     </Grid>

@@ -28,13 +28,13 @@
         <DataGrid x:Name="scoreDataGrid" AutoGenerateColumns="False" EnableRowVirtualization="True" ItemsSource="{Binding}" Margin="462,10,10,10.5" RowDetailsVisibilityMode="VisibleWhenSelected">
             <DataGrid.Columns>
                 <DataGridTextColumn x:Name="idColumn" Binding="{Binding Id}" Header="Id" IsReadOnly="True" Width="SizeToHeader"/>
-                <DataGridTextColumn x:Name="turnamentColumn" Binding="{Binding Turnament}" Header="Turnament" Width="120"/>
-                <DataGridTextColumn x:Name="competitionColumn" Binding="{Binding Competition}" Header="Competition" Width="SizeToHeader"/>
-                <DataGridTextColumn x:Name="playerColumn" Binding="{Binding Player}" Header="Player" Width="SizeToHeader"/>
-                <DataGridTextColumn x:Name="playerScoreColumn" Binding="{Binding PlayerScore}" Header="Player Score" Width="SizeToHeader"/>
+                <DataGridTextColumn x:Name="turnamentColumn" Binding="{Binding Turnament}" Header="Zawody" Width="120"/>
+                <DataGridTextColumn x:Name="competitionColumn" Binding="{Binding Competition}" Header="Konkurencja" Width="SizeToHeader"/>
+                <DataGridTextColumn x:Name="playerColumn" Binding="{Binding Player}" Header="Numer Startowy" Width="SizeToHeader"/>
+                <DataGridTextColumn x:Name="playerScoreColumn" Binding="{Binding PlayerScore}" Header="Punkty" Width="SizeToHeader"/>
                 <DataGridTextColumn x:Name="xColumn" Binding="{Binding X}" Header="X" Width="SizeToHeader"/>
-                <DataGridTextColumn x:Name="timeColumn" Binding="{Binding Time}" Header="Time" Width="SizeToHeader"/>
-                <DataGridTextColumn x:Name="finalScoreColumn" Binding="{Binding FinalScore}" Header="Final Score" Width="SizeToHeader"/>
+                <DataGridTextColumn x:Name="timeColumn" Binding="{Binding Time}" Header="Czas" Width="SizeToHeader"/>
+                <DataGridTextColumn x:Name="finalScoreColumn" Binding="{Binding FinalScore}" Header="Factor" Width="SizeToHeader"/>
             </DataGrid.Columns>
         </DataGrid>
     </Grid>

@@ -19,9 +19,8 @@
         <Button Content="Powrót" HorizontalAlignment="Left" Height="44" Margin="82,180,0,0" VerticalAlignment="Top" Width="124" Click="Button_Click_2"/>
         <DataGrid x:Name="turnamentDataGrid" AutoGenerateColumns="False" EnableRowVirtualization="True" ItemsSource="{Binding}" Margin="593,10,10,9.5" RowDetailsVisibilityMode="VisibleWhenSelected">
             <DataGrid.Columns>
-                <DataGridTextColumn x:Name="idColumn" Binding="{Binding Id}" Header="Id" IsReadOnly="True" Width="SizeToHeader"/>
-                <DataGridTextColumn x:Name="turnamentNameColumn" Binding="{Binding TurnamentName}" Header="Turnament Name" Width="250"/>
-                <DataGridTemplateColumn x:Name="turnamentDateColumn" Header="Turnament Date" Width="SizeToHeader">
+                <DataGridTextColumn x:Name="turnamentNameColumn" Binding="{Binding TurnamentName}" Header="Nazwa Zawodów" Width="250"/>
+                <DataGridTemplateColumn x:Name="turnamentDateColumn" Header="Data Zawodów" Width="SizeToHeader">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <DatePicker SelectedDate="{Binding TurnamentDate, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"/>
