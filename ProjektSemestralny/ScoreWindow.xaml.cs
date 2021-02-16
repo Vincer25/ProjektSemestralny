@@ -49,7 +49,7 @@ namespace ProjektSemestralny
             if (TurnamentComboBox.SelectedItem == null)
             {
                 stopInsert = true;
-                MessageBox.Show("Nazwa zawodów nie może pozostać pusta");
+                MessageBox.Show("Nazwa zawodów nie może pozostać pusta", "Uwaga");
             }
             else
             {
@@ -63,7 +63,7 @@ namespace ProjektSemestralny
             if (CompetitionComboBox.SelectedItem == null)
             {
                 stopInsert = true;
-                MessageBox.Show("Nazwa zawodów nie może pozostać pusta");
+                MessageBox.Show("Nazwa zawodów nie może pozostać pusta", "Uwaga");
             }
             else
             {
@@ -77,7 +77,7 @@ namespace ProjektSemestralny
             if (PlayerTextBox.Text == "")
             {
                 stopInsert = true;
-                MessageBox.Show("Konkurencja nie może pozostać pusty");
+                MessageBox.Show("Konkurencja nie może pozostać pusty", "Uwaga");
             }
             else
             {
@@ -88,7 +88,7 @@ namespace ProjektSemestralny
             if (ScoreTextBox.Text == "")
             {
                 stopInsert = true;
-                MessageBox.Show("Wyniku nie może pozostać pusty");  
+                MessageBox.Show("Wyniku nie może pozostać pusty", "Uwaga");  
             }
             else
             {
@@ -123,7 +123,6 @@ namespace ProjektSemestralny
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-
             ProjektSemestralny.DatabaseDataSet databaseDataSet = ((ProjektSemestralny.DatabaseDataSet)(this.FindResource("databaseDataSet")));
             // Załaduj dane do tabeli Score. Możesz modyfikować ten kod w razie potrzeby.
             ProjektSemestralny.DatabaseDataSetTableAdapters.ScoreTableAdapter databaseDataSetScoreTableAdapter = new ProjektSemestralny.DatabaseDataSetTableAdapters.ScoreTableAdapter();

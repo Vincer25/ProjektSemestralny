@@ -35,22 +35,28 @@ namespace ProjektSemestralny
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
-            Competitions competitions = new Competitions();
+            if (ShortBox.Text == "" || NameBox.Text == "")
+            {
+                MessageBox.Show("Pola nie mogą pozostać puste", "Uwaga");
+            }
+            else
+            {
+                Competitions competitions = new Competitions();
 
-            competitions.Cut = ShortBox.Text.Trim();
-            competitions.CompetitionName = NameBox.Text.Trim();
+                competitions.Cut = ShortBox.Text.Trim();
+                competitions.CompetitionName = NameBox.Text.Trim();
 
-            db.Competitions.Add(competitions);
-            db.SaveChanges();
-            this.competitionsDataGrid.ItemsSource = db.Competitions.ToList();
+                db.Competitions.Add(competitions);
+                db.SaveChanges();
+                this.competitionsDataGrid.ItemsSource = db.Competitions.ToList();
 
-            ShortBox.Text = "";
-            NameBox.Text = "";
+                ShortBox.Text = "";
+                NameBox.Text = "";
+            }
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-
             ProjektSemestralny.DatabaseDataSet databaseDataSet = ((ProjektSemestralny.DatabaseDataSet)(this.FindResource("databaseDataSet")));
             // Załaduj dane do tabeli Competitions. Możesz modyfikować ten kod w razie potrzeby.
             ProjektSemestralny.DatabaseDataSetTableAdapters.CompetitionsTableAdapter databaseDataSetCompetitionsTableAdapter = new ProjektSemestralny.DatabaseDataSetTableAdapters.CompetitionsTableAdapter();

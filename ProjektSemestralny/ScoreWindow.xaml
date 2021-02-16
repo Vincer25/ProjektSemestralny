@@ -11,7 +11,7 @@
         <CollectionViewSource x:Key="scoreViewSource" Source="{Binding Score, Source={StaticResource databaseDataSet}}"/>
     </Window.Resources>
     <Grid DataContext="{StaticResource scoreViewSource}">
-        <Button Content="GO B" HorizontalAlignment="Left" Height="42" Margin="123,453,0,0" VerticalAlignment="Top" Width="184" Click="Button_Click_1"/>
+        <Button Content="Powrót" HorizontalAlignment="Left" Height="42" Margin="38,299,0,0" VerticalAlignment="Top" Width="161" Click="Button_Click_1"/>
         <TextBlock HorizontalAlignment="Left" Margin="38,48,0,0" TextWrapping="Wrap" Text="Nazwa Zawodów" VerticalAlignment="Top" Height="28" Width="133" FontWeight="Bold" FontSize="16"/>
         <TextBox x:Name="ScoreTextBox" HorizontalAlignment="Left" Height="28" Margin="199,147,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="228" FontSize="16"/>
         <ComboBox x:Name="TurnamentComboBox" HorizontalAlignment="Left" Height="28" Margin="199,48,0,0" VerticalAlignment="Top" Width="228"/>
@@ -20,7 +20,7 @@
         <TextBlock HorizontalAlignment="Left" Margin="38,147,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="28" Width="133" FontWeight="Bold" FontSize="16"><Run Text="Wynik"/><LineBreak/><Run/></TextBlock>
         <TextBox x:Name="PlayerTextBox" HorizontalAlignment="Left" Height="28" Margin="199,114,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="228" FontSize="16"/>
         <ComboBox x:Name="CompetitionComboBox" HorizontalAlignment="Left" Height="28" Margin="199,81,0,0" VerticalAlignment="Top" Width="228"/>
-        <Button Content="Wykonaj" HorizontalAlignment="Left" Height="42" Margin="123,274,0,0" VerticalAlignment="Top" Width="184" Click="Button_Click_2"/>
+        <Button Content="Zapisz" HorizontalAlignment="Left" Height="42" Margin="244,299,0,0" VerticalAlignment="Top" Width="152" Click="Button_Click_2"/>
         <TextBox x:Name="XTextBox" HorizontalAlignment="Left" Height="28" Margin="199,180,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="228" FontSize="16" RenderTransformOrigin="0.555,0.48"/>
         <TextBlock HorizontalAlignment="Left" Margin="38,180,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="28" Width="133" FontWeight="Bold" FontSize="16" Text="X"/>
         <TextBox x:Name="TimeTextBox" HorizontalAlignment="Left" Height="28" Margin="199,213,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="228" FontSize="16"/>

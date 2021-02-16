@@ -11,15 +11,15 @@
         <CollectionViewSource x:Key="playersViewSource" Source="{Binding Players, Source={StaticResource databaseDataSet}}"/>
     </Window.Resources>
     <Grid DataContext="{StaticResource playersViewSource}">
-        <Button x:Name="ExitButton" Content="GO B" HorizontalAlignment="Left" Height="44" Margin="262,357,0,0" VerticalAlignment="Top" Width="124" Click="Button_Click_1"/>
+        <Button x:Name="ExitButton" Content="Powrót" HorizontalAlignment="Left" Height="44" Margin="64,357,0,0" VerticalAlignment="Top" Width="136" Click="Button_Click_1"/>
         <TextBlock HorizontalAlignment="Left" Margin="28,42,0,0" TextWrapping="Wrap" Text="Imię" VerticalAlignment="Top" Height="28" Width="100" FontWeight="Bold" FontSize="16"/>
-        <Button x:Name="SaveButton" Content="Save Button" HorizontalAlignment="Left" Height="44" Margin="72,357,0,0" VerticalAlignment="Top" Width="124" Click="Button_Click_2"/>
+        <Button x:Name="SaveButton" Content="Zapisz" HorizontalAlignment="Left" Height="44" Margin="262,357,0,0" VerticalAlignment="Top" Width="136" Click="Button_Click_2"/>
         <TextBlock HorizontalAlignment="Left" Margin="28,86,0,0" TextWrapping="Wrap" Text="Nazwisko" VerticalAlignment="Top" Height="28" Width="100" FontWeight="Bold" FontSize="16"/>
         <TextBlock HorizontalAlignment="Left" Margin="28,133,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="28" Width="100" FontWeight="Bold" FontSize="16"><Run Text="Klub"/><LineBreak/><Run/></TextBlock>
         <TextBlock HorizontalAlignment="Left" Margin="28,177,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="28" Width="124" FontWeight="Bold" FontSize="16"><Run Text="Numer Licencji"/><LineBreak/><Run/></TextBlock>
         <TextBlock HorizontalAlignment="Left" Margin="28,222,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="42" Width="124" FontWeight="Bold" FontSize="16"><Run Text="Numer Telefonu"/><LineBreak/><Run/></TextBlock>
         <TextBlock HorizontalAlignment="Left" Margin="28,269,0,0" TextWrapping="Wrap" Text="E-mail" VerticalAlignment="Top" Height="28" Width="100" FontWeight="Bold" FontSize="16"/>
-        <TextBox x:Name="PlayerEmailBox" HorizontalAlignment="Left" Height="28" Margin="170,269,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="228" FontSize="16" TextChanged="PlayerEmailBox_TextChanged"/>
+        <TextBox x:Name="PlayerEmailBox" HorizontalAlignment="Left" Height="28" Margin="170,269,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="228" FontSize="16"/>
         <TextBox x:Name="PlayerPhoneNumberBox" HorizontalAlignment="Left" Height="28" Margin="170,222,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="228" FontSize="16"/>
         <TextBox x:Name="PlayerLicenseBox" HorizontalAlignment="Left" Height="28" Margin="170,177,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="228" FontSize="16"/>
         <TextBox x:Name="PlayerClubBox" HorizontalAlignment="Left" Height="28" Margin="170,133,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="228" FontSize="16"/>
