@@ -35,14 +35,24 @@ namespace ProjektSemestralny
             CompetitionComboBox.ItemsSource = db.Competitions.Select(u => u.CompetitionName).ToList();
         }
 
-        private void Button_Click_1(object sender, RoutedEventArgs e)
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            ProjektSemestralny.DatabaseDataSet databaseDataSet = ((ProjektSemestralny.DatabaseDataSet)(this.FindResource("databaseDataSet")));
+            // Załaduj dane do tabeli Score. Możesz modyfikować ten kod w razie potrzeby.
+            ProjektSemestralny.DatabaseDataSetTableAdapters.ScoreTableAdapter databaseDataSetScoreTableAdapter = new ProjektSemestralny.DatabaseDataSetTableAdapters.ScoreTableAdapter();
+            databaseDataSetScoreTableAdapter.Fill(databaseDataSet.Score);
+            System.Windows.Data.CollectionViewSource scoreViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("scoreViewSource")));
+            scoreViewSource.View.MoveCurrentToFirst();
+        }
+
+        private void Back_Button_Click(object sender, RoutedEventArgs e)
         {
             MainWindow mainWindow = new MainWindow();
             mainWindow.Show();
             this.Close();
         }
 
-        private void Button_Click_2(object sender, RoutedEventArgs e)
+        private void Send_Button_Click(object sender, RoutedEventArgs e)
         {
             Score score = new Score();
 
@@ -104,20 +114,10 @@ namespace ProjektSemestralny
                 db.Score.Add(score);
                 db.SaveChanges();
                 this.scoreDataGrid.ItemsSource = db.Score.ToList();
-            }     
+            }
         }
 
-        private void Window_Loaded(object sender, RoutedEventArgs e)
-        {
-            ProjektSemestralny.DatabaseDataSet databaseDataSet = ((ProjektSemestralny.DatabaseDataSet)(this.FindResource("databaseDataSet")));
-            // Załaduj dane do tabeli Score. Możesz modyfikować ten kod w razie potrzeby.
-            ProjektSemestralny.DatabaseDataSetTableAdapters.ScoreTableAdapter databaseDataSetScoreTableAdapter = new ProjektSemestralny.DatabaseDataSetTableAdapters.ScoreTableAdapter();
-            databaseDataSetScoreTableAdapter.Fill(databaseDataSet.Score);
-            System.Windows.Data.CollectionViewSource scoreViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("scoreViewSource")));
-            scoreViewSource.View.MoveCurrentToFirst();
-        }
-
-        private void Button_Click_3(object sender, RoutedEventArgs e)
+        private void Delete_Button_Click(object sender, RoutedEventArgs e)
         {
             try
             {
@@ -129,6 +129,12 @@ namespace ProjektSemestralny
             {
                 MessageBox.Show("Nie wybrano rekordu", "Uwaga");
             }
+            db.SaveChanges();
+            this.scoreDataGrid.ItemsSource = db.Score.ToList();
+        }
+
+        private void Save_Button_Click(object sender, RoutedEventArgs e)
+        {
             db.SaveChanges();
             this.scoreDataGrid.ItemsSource = db.Score.ToList();
         }

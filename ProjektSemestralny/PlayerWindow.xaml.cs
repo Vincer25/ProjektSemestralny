@@ -26,14 +26,24 @@ namespace ProjektSemestralny
             InitializeComponent();
         }
 
-        private void Button_Click_1(object sender, RoutedEventArgs e)
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            ProjektSemestralny.DatabaseDataSet databaseDataSet = ((ProjektSemestralny.DatabaseDataSet)(this.FindResource("databaseDataSet")));
+            // Załaduj dane do tabeli Players. Możesz modyfikować ten kod w razie potrzeby.
+            ProjektSemestralny.DatabaseDataSetTableAdapters.PlayersTableAdapter databaseDataSetPlayersTableAdapter = new ProjektSemestralny.DatabaseDataSetTableAdapters.PlayersTableAdapter();
+            databaseDataSetPlayersTableAdapter.Fill(databaseDataSet.Players);
+            System.Windows.Data.CollectionViewSource playersViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("playersViewSource")));
+            playersViewSource.View.MoveCurrentToFirst();
+        }
+
+        private void Back_Button_Click(object sender, RoutedEventArgs e)
         {
             MainWindow mainWindow = new MainWindow();
             mainWindow.Show();
             this.Close();
         }
 
-        private void Button_Click_2(object sender, RoutedEventArgs e)
+        private void Send_Button_Click(object sender, RoutedEventArgs e)
         {
             if (PlayerNameBox.Text == "" || PlayerSecondNameBox.Text == "" || PlayerClubBox.Text == "")
             {
@@ -63,17 +73,13 @@ namespace ProjektSemestralny
             }
         }
 
-        private void Window_Loaded(object sender, RoutedEventArgs e)
+        private void Save_Button_Click(object sender, RoutedEventArgs e)
         {
-            ProjektSemestralny.DatabaseDataSet databaseDataSet = ((ProjektSemestralny.DatabaseDataSet)(this.FindResource("databaseDataSet")));
-            // Załaduj dane do tabeli Players. Możesz modyfikować ten kod w razie potrzeby.
-            ProjektSemestralny.DatabaseDataSetTableAdapters.PlayersTableAdapter databaseDataSetPlayersTableAdapter = new ProjektSemestralny.DatabaseDataSetTableAdapters.PlayersTableAdapter();
-            databaseDataSetPlayersTableAdapter.Fill(databaseDataSet.Players);
-            System.Windows.Data.CollectionViewSource playersViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("playersViewSource")));
-            playersViewSource.View.MoveCurrentToFirst();
+            db.SaveChanges();
+            this.playersDataGrid.ItemsSource = db.Players.ToList();
         }
 
-        private void Button_Click_3(object sender, RoutedEventArgs e)
+        private void Delete_Button_Click(object sender, RoutedEventArgs e)
         {
             try
             {

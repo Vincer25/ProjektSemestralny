@@ -5,22 +5,22 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProjektSemestralny"
         mc:Ignorable="d"
-        Title="TurnamentWindow" Height="450" Width="1000" Loaded="Window_Loaded">
+        Title="Turnament Manager - Lista Zawodów" Height="600" Width="1000" Loaded="Window_Loaded">
     <Window.Resources>
         <local:DatabaseDataSet x:Key="databaseDataSet"/>
         <CollectionViewSource x:Key="turnamentViewSource" Source="{Binding Turnament, Source={StaticResource databaseDataSet}}"/>
     </Window.Resources>
     <Grid DataContext="{StaticResource turnamentViewSource}">
-        <TextBlock HorizontalAlignment="Left" Margin="39,56,0,0" TextWrapping="Wrap" Text="Nazwa Zawodów" VerticalAlignment="Top" Height="28" Width="134" FontWeight="Bold" FontSize="16"/>
-        <TextBlock HorizontalAlignment="Left" Margin="39,112,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="28" Width="134" FontWeight="Bold" FontSize="16"><Run Text="Data"/><Run Text=" Zawodów"/></TextBlock>
-        <TextBox x:Name="TurnamentNameBox" HorizontalAlignment="Left" Height="28" Margin="199,56,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="224" FontSize="16"/>
-        <DatePicker x:Name="TurnamentDateBox" HorizontalAlignment="Left" Margin="199,112,0,0" VerticalAlignment="Top" Width="224" Height="28"/>
-        <Button x:Name="SaveButton" Content="Zapisz" HorizontalAlignment="Left" Height="44" Margin="267,180,0,0" VerticalAlignment="Top" Width="124" Click="Button_Click_1"/>
-        <Button Content="Powrót" HorizontalAlignment="Left" Height="44" Margin="82,180,0,0" VerticalAlignment="Top" Width="124" Click="Button_Click_2"/>
-        <DataGrid x:Name="turnamentDataGrid" AutoGenerateColumns="False" EnableRowVirtualization="True" ItemsSource="{Binding}" Margin="593,10,10,9.5" RowDetailsVisibilityMode="VisibleWhenSelected">
+        <TextBlock x:Name="TurnamentNameBlock" HorizontalAlignment="Left" Margin="311,349,0,0" TextWrapping="Wrap" Text="Nazwa Zawodów" VerticalAlignment="Top" Height="28" Width="134" FontWeight="Bold" FontSize="16"/>
+        <TextBlock x:Name="TurnamentDateBlock" HorizontalAlignment="Left" Margin="311,399,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="28" Width="134" FontWeight="Bold" FontSize="16" RenderTransformOrigin="4.291,-2.911"><Run Text="Data"/><Run Text=" Zawodów"/></TextBlock>
+        <TextBox x:Name="TurnamentNameBox" HorizontalAlignment="Left" Height="28" Margin="450,349,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="224" FontSize="16"/>
+        <DatePicker x:Name="TurnamentDateBox" HorizontalAlignment="Left" Margin="450,399,0,0" VerticalAlignment="Top" Width="224" Height="28"/>
+        <Button x:Name="SendButton" Content="Wyślij" HorizontalAlignment="Left" Height="50" Margin="311,482,0,0" VerticalAlignment="Top" Width="125" Click="Send_Button_Click"/>
+        <Button x:Name="BackButton" Content="Powrót" HorizontalAlignment="Left" Height="50" Margin="80,482,0,0" VerticalAlignment="Top" Width="125" Click="Back_Button_Click"/>
+        <DataGrid x:Name="turnamentDataGrid" AutoGenerateColumns="False" EnableRowVirtualization="True" ItemsSource="{Binding}" Margin="10,10,10,245.5" RowDetailsVisibilityMode="VisibleWhenSelected">
             <DataGrid.Columns>
                 <DataGridTextColumn x:Name="turnamentNameColumn" Binding="{Binding TurnamentName}" Header="Nazwa Zawodów" Width="250"/>
-                <DataGridTemplateColumn x:Name="turnamentDateColumn" Header="Data Zawodów" Width="SizeToHeader">
+                <DataGridTemplateColumn x:Name="turnamentDateColumn" Header="Data Zawodów" Width="200">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <DatePicker SelectedDate="{Binding TurnamentDate, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"/>
@@ -29,6 +29,7 @@
                 </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
-        <Button Content="Button" HorizontalAlignment="Left" Height="86" Margin="173,296,0,0" VerticalAlignment="Top" Width="237" Background="Red" Click="Button_Click_3"/>
+        <Button x:Name="DeleteButton" Content="Usuń" Height="50" Margin="790,482,80,0" VerticalAlignment="Top" Background="#FFE40303" Click="Delete_Button_Click"/>
+        <Button x:Name="SaveButton" Content="Zapisz" HorizontalAlignment="Left" Height="50" Margin="549,482,0,0" VerticalAlignment="Top" Width="125" Click="Save_Button_Click"/>
     </Grid>
 </Window>

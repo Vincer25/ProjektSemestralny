@@ -26,7 +26,24 @@ namespace ProjektSemestralny
             InitializeComponent();
         }
 
-        private void Button_Click_1(object sender, RoutedEventArgs e)
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            ProjektSemestralny.DatabaseDataSet databaseDataSet = ((ProjektSemestralny.DatabaseDataSet)(this.FindResource("databaseDataSet")));
+            // Załaduj dane do tabeli Turnament. Możesz modyfikować ten kod w razie potrzeby.
+            ProjektSemestralny.DatabaseDataSetTableAdapters.TurnamentTableAdapter databaseDataSetTurnamentTableAdapter = new ProjektSemestralny.DatabaseDataSetTableAdapters.TurnamentTableAdapter();
+            databaseDataSetTurnamentTableAdapter.Fill(databaseDataSet.Turnament);
+            System.Windows.Data.CollectionViewSource turnamentViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("turnamentViewSource")));
+            turnamentViewSource.View.MoveCurrentToFirst();
+        }
+
+        private void Back_Button_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow mainWindow = new MainWindow();
+            mainWindow.Show();
+            this.Close();
+        }
+
+        private void Send_Button_Click(object sender, RoutedEventArgs e)
         {
             if (TurnamentNameBox.Text == "" || TurnamentDateBox.Text == "")
             {
@@ -45,24 +62,13 @@ namespace ProjektSemestralny
             }
         }
 
-        private void Button_Click_2(object sender, RoutedEventArgs e)
+        private void Save_Button_Click(object sender, RoutedEventArgs e)
         {
-            MainWindow mainWindow = new MainWindow();
-            mainWindow.Show();
-            this.Close();
+            db.SaveChanges();
+            this.turnamentDataGrid.ItemsSource = db.Turnament.ToList();
         }
 
-        private void Window_Loaded(object sender, RoutedEventArgs e)
-        {
-            ProjektSemestralny.DatabaseDataSet databaseDataSet = ((ProjektSemestralny.DatabaseDataSet)(this.FindResource("databaseDataSet")));
-            // Załaduj dane do tabeli Turnament. Możesz modyfikować ten kod w razie potrzeby.
-            ProjektSemestralny.DatabaseDataSetTableAdapters.TurnamentTableAdapter databaseDataSetTurnamentTableAdapter = new ProjektSemestralny.DatabaseDataSetTableAdapters.TurnamentTableAdapter();
-            databaseDataSetTurnamentTableAdapter.Fill(databaseDataSet.Turnament);
-            System.Windows.Data.CollectionViewSource turnamentViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("turnamentViewSource")));
-            turnamentViewSource.View.MoveCurrentToFirst();
-        }
-
-        private void Button_Click_3(object sender, RoutedEventArgs e)
+        private void Delete_Button_Click(object sender, RoutedEventArgs e)
         {
             try
             {

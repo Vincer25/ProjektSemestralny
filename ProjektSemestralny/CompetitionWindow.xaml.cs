@@ -26,14 +26,24 @@ namespace ProjektSemestralny
             InitializeComponent();
         }
 
-        private void Button_Click_1(object sender, RoutedEventArgs e)
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            ProjektSemestralny.DatabaseDataSet databaseDataSet = ((ProjektSemestralny.DatabaseDataSet)(this.FindResource("databaseDataSet")));
+            // Załaduj dane do tabeli Competitions. Możesz modyfikować ten kod w razie potrzeby.
+            ProjektSemestralny.DatabaseDataSetTableAdapters.CompetitionsTableAdapter databaseDataSetCompetitionsTableAdapter = new ProjektSemestralny.DatabaseDataSetTableAdapters.CompetitionsTableAdapter();
+            databaseDataSetCompetitionsTableAdapter.Fill(databaseDataSet.Competitions);
+            System.Windows.Data.CollectionViewSource competitionsViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("competitionsViewSource")));
+            competitionsViewSource.View.MoveCurrentToFirst();
+        }
+
+        private void Back_Button_Click(object sender, RoutedEventArgs e)
         {
             MainWindow mainWindow = new MainWindow();
             mainWindow.Show();
             this.Close();
         }
 
-        private void Button_Click_2(object sender, RoutedEventArgs e)
+        private void Send_Button_Click(object sender, RoutedEventArgs e)
         {
             if (ShortBox.Text == "" || NameBox.Text == "")
             {
@@ -55,17 +65,13 @@ namespace ProjektSemestralny
             }
         }
 
-        private void Window_Loaded(object sender, RoutedEventArgs e)
+        private void Save_Button_Click(object sender, RoutedEventArgs e)
         {
-            ProjektSemestralny.DatabaseDataSet databaseDataSet = ((ProjektSemestralny.DatabaseDataSet)(this.FindResource("databaseDataSet")));
-            // Załaduj dane do tabeli Competitions. Możesz modyfikować ten kod w razie potrzeby.
-            ProjektSemestralny.DatabaseDataSetTableAdapters.CompetitionsTableAdapter databaseDataSetCompetitionsTableAdapter = new ProjektSemestralny.DatabaseDataSetTableAdapters.CompetitionsTableAdapter();
-            databaseDataSetCompetitionsTableAdapter.Fill(databaseDataSet.Competitions);
-            System.Windows.Data.CollectionViewSource competitionsViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("competitionsViewSource")));
-            competitionsViewSource.View.MoveCurrentToFirst();
+            db.SaveChanges();
+            this.competitionsDataGrid.ItemsSource = db.Competitions.ToList();
         }
 
-        private void Button_Click_3(object sender, RoutedEventArgs e)
+        private void Delete_Button_Click(object sender, RoutedEventArgs e)
         {
             try
             {
