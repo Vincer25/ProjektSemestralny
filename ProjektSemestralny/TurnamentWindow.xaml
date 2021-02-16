@@ -10,16 +10,12 @@
         <local:DatabaseDataSet x:Key="databaseDataSet"/>
         <CollectionViewSource x:Key="turnamentViewSource" Source="{Binding Turnament, Source={StaticResource databaseDataSet}}"/>
     </Window.Resources>
-    <Grid DataContext="{StaticResource turnamentViewSource}">
-        <TextBlock x:Name="TurnamentNameBlock" HorizontalAlignment="Left" Margin="311,349,0,0" TextWrapping="Wrap" Text="Nazwa Zawodów" VerticalAlignment="Top" Height="28" Width="134" FontWeight="Bold" FontSize="16"/>
-        <TextBlock x:Name="TurnamentDateBlock" HorizontalAlignment="Left" Margin="311,399,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="28" Width="134" FontWeight="Bold" FontSize="16" RenderTransformOrigin="4.291,-2.911"><Run Text="Data"/><Run Text=" Zawodów"/></TextBlock>
-        <TextBox x:Name="TurnamentNameBox" HorizontalAlignment="Left" Height="28" Margin="450,349,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="224" FontSize="16"/>
-        <DatePicker x:Name="TurnamentDateBox" HorizontalAlignment="Left" Margin="450,399,0,0" VerticalAlignment="Top" Width="224" Height="28"/>
-        <Button x:Name="SendButton" Content="Wyślij" HorizontalAlignment="Left" Height="50" Margin="311,482,0,0" VerticalAlignment="Top" Width="125" Click="Send_Button_Click"/>
-        <Button x:Name="BackButton" Content="Powrót" HorizontalAlignment="Left" Height="50" Margin="80,482,0,0" VerticalAlignment="Top" Width="125" Click="Back_Button_Click"/>
-        <Button x:Name="DeleteButton" Content="Usuń" Height="50" Margin="790,482,80,0" VerticalAlignment="Top" Background="#FFE40303" Click="Delete_Button_Click"/>
-        <Button x:Name="UpdateButton" Content="Aktualizuj" HorizontalAlignment="Left" Height="50" Margin="549,482,0,0" VerticalAlignment="Top" Width="125" Click="Update_Button_Click"/>
-        <DataGrid x:Name="turnamentDataGrid" AutoGenerateColumns="False" EnableRowVirtualization="True" ItemsSource="{Binding}" Margin="10,10,10,245.5" RowDetailsVisibilityMode="VisibleWhenSelected" CanUserAddRows="false">
+    <Grid DataContext="{StaticResource turnamentViewSource}" Background="#FF0F0F2D">
+        <TextBlock x:Name="TurnamentNameBlock" HorizontalAlignment="Left" Margin="311,349,0,0" TextWrapping="Wrap" Text="Nazwa Zawodów" VerticalAlignment="Top" Height="28" Width="134" FontWeight="Bold" FontSize="16" Foreground="White"/>
+        <TextBlock x:Name="TurnamentDateBlock" HorizontalAlignment="Left" Margin="311,399,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="28" Width="134" FontWeight="Bold" FontSize="16" RenderTransformOrigin="4.291,-2.911" Foreground="White"><Run Text="Data"/><Run Text=" Zawodów"/></TextBlock>
+        <TextBox x:Name="TurnamentNameBox" HorizontalAlignment="Left" Height="28" Margin="450,349,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="224" FontSize="16" BorderBrush="{x:Null}" SelectionBrush="{x:Null}" Foreground="#FF0F0F2D"/>
+        <DatePicker x:Name="TurnamentDateBox" HorizontalAlignment="Left" Margin="450,399,0,0" VerticalAlignment="Top" Width="224" Height="28" BorderBrush="{x:Null}" Foreground="#FF0F0F2D" FontWeight="Bold"/>
+        <DataGrid x:Name="turnamentDataGrid" AutoGenerateColumns="False" EnableRowVirtualization="True" ItemsSource="{Binding}" Margin="10,10,10,245.5" RowDetailsVisibilityMode="VisibleWhenSelected" CanUserAddRows="false" Background="White" Foreground="#FF0F0F2D" BorderBrush="{x:Null}">
             <DataGrid.Columns>
                 <DataGridTextColumn x:Name="turnamentNameColumn" Binding="{Binding TurnamentName}" Header="Nazwa Zawodów" Width="250"/>
                 <DataGridTemplateColumn x:Name="turnamentDateColumn" Header="Data Zawodów" Width="200">
@@ -31,5 +27,53 @@
                 </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
+        <Button x:Name="BackButton" Content="Powrót" HorizontalAlignment="Left" Height="50" Margin="90,480,0,0" VerticalAlignment="Top" Width="125" Click="Back_Button_Click" FontWeight="Bold" FontSize="18" Background="#FFFF4C70" Foreground="White" BorderBrush="#FF0F0F2D">
+            <Button.Template>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border 
+                        CornerRadius="20"
+                        Background="{TemplateBinding Background}">
+                        <ContentPresenter VerticalAlignment="Center"
+                            HorizontalAlignment="Center"/>
+                    </Border>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+        <Button x:Name="SendButton" Content="Wyślij" HorizontalAlignment="Left" Height="50" Margin="320,480,0,0" VerticalAlignment="Top" Width="125" Click="Send_Button_Click" FontWeight="Bold" FontSize="18" Background="#FF289DFF" Foreground="#FF0F0F2D" BorderBrush="#FF0F0F2D">
+            <Button.Template>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border 
+                        CornerRadius="20"
+                        Background="{TemplateBinding Background}">
+                        <ContentPresenter VerticalAlignment="Center"
+                            HorizontalAlignment="Center"/>
+                    </Border>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+        <Button x:Name="UpdateButton" Content="Aktualizuj" HorizontalAlignment="Left" Height="50" Margin="549,480,0,0" VerticalAlignment="Top" Width="125" Click="Update_Button_Click" FontWeight="Bold" FontSize="18" Background="#FF289DFF" Foreground="#FF0F0F2D" BorderBrush="#FF0F0F2D">
+            <Button.Template>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border 
+                        CornerRadius="20"
+                        Background="{TemplateBinding Background}">
+                        <ContentPresenter VerticalAlignment="Center"
+                            HorizontalAlignment="Center"/>
+                    </Border>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+        <Button x:Name="DeleteButton" Content="Usuń" Height="50" Margin="780,480,90,0" VerticalAlignment="Top" Click="Delete_Button_Click" FontWeight="Bold" FontSize="18" Background="#FFFF4C70" Foreground="White" BorderBrush="#FF0F0F2D">
+            <Button.Template>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border 
+                        CornerRadius="20"
+                        Background="{TemplateBinding Background}">
+                        <ContentPresenter VerticalAlignment="Center"
+                            HorizontalAlignment="Center"/>
+                    </Border>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
     </Grid>
 </Window>

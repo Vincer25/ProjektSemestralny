@@ -10,24 +10,20 @@
         <local:DatabaseDataSet x:Key="databaseDataSet"/>
         <CollectionViewSource x:Key="scoreViewSource" Source="{Binding Score, Source={StaticResource databaseDataSet}}"/>
     </Window.Resources>
-    <Grid DataContext="{StaticResource scoreViewSource}">
-        <Button x:Name="DeleteButton" Content="Usuń" Height="50" Margin="780,487,90,0" VerticalAlignment="Top" Click="Delete_Button_Click" Background="Red"/>
-        <Button x:Name="UpdateButton" Content="Aktualizuj" HorizontalAlignment="Left" Height="50" Margin="541,487,0,0" VerticalAlignment="Top" Width="125" Click="Update_Button_Click"/>
-        <Button x:Name="BackButton" Content="Powrót" HorizontalAlignment="Left" Height="50" Margin="90,487,0,0" VerticalAlignment="Top" Width="125" Click="Back_Button_Click"/>
-        <Button x:Name="SendButton" Content="Wyślij" HorizontalAlignment="Left" Height="50" Margin="325,487,0,0" VerticalAlignment="Top" Width="125" Click="Send_Button_Click"/>
-        <TextBlock x:Name="TurnamentNameBlock" HorizontalAlignment="Left" Margin="101,347,0,0" TextWrapping="Wrap" Text="Nazwa Zawodów" VerticalAlignment="Top" Height="28" Width="133" FontWeight="Bold" FontSize="16"/>
-        <TextBlock x:Name="CompetitionNameBlock" HorizontalAlignment="Left" Margin="101,391,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="28" Width="133" FontWeight="Bold" FontSize="16"><Run Text="Konkurencja"/><LineBreak/><Run/></TextBlock>
-        <TextBlock x:Name="PlayerNumberBlock" HorizontalAlignment="Left" Margin="101,437,0,0" TextWrapping="Wrap" Text="Numer Startowy" VerticalAlignment="Top" Height="28" Width="133" FontWeight="Bold" FontSize="16"/>
-        <TextBlock x:Name="ScoreBlock" HorizontalAlignment="Left" Margin="573,347,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="28" Width="133" FontWeight="Bold" FontSize="16"><Run Text="Wynik"/><LineBreak/><Run/></TextBlock>
-        <TextBlock x:Name="XBlock" HorizontalAlignment="Left" Margin="573,391,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="28" Width="133" FontWeight="Bold" FontSize="16" Text="X"/>
-        <TextBlock x:Name="TimeBlock" HorizontalAlignment="Left" Margin="573,437,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="28" Width="133" FontWeight="Bold" FontSize="16"><Run Text="Czas"/><LineBreak/><Run/><LineBreak/><Run/></TextBlock>
-        <ComboBox x:Name="TurnamentComboBox" HorizontalAlignment="Left" Height="28" Margin="262,347,0,0" VerticalAlignment="Top" Width="228"/>
-        <ComboBox x:Name="CompetitionComboBox" HorizontalAlignment="Left" Height="28" Margin="262,391,0,0" VerticalAlignment="Top" Width="228"/>
-        <TextBox x:Name="ScoreTextBox" HorizontalAlignment="Left" Height="28" Margin="644,347,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="228" FontSize="16"/>
-        <TextBox x:Name="XTextBox" HorizontalAlignment="Left" Height="28" Margin="644,391,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="228" FontSize="16" RenderTransformOrigin="0.555,0.48"/>
-        <TextBox x:Name="PlayerTextBox" HorizontalAlignment="Left" Height="28" Margin="262,437,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="228" FontSize="16"/>
-        <TextBox x:Name="TimeTextBox" HorizontalAlignment="Left" Height="28" Margin="644,437,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="228" FontSize="16"/>
-        <DataGrid x:Name="scoreDataGrid" AutoGenerateColumns="False" EnableRowVirtualization="True" ItemsSource="{Binding}" Margin="10,10,10,254.5" RowDetailsVisibilityMode="VisibleWhenSelected" CanUserAddRows="false">
+    <Grid DataContext="{StaticResource scoreViewSource}" Background="#FF0F0F2D">
+        <TextBlock x:Name="TurnamentNameBlock" HorizontalAlignment="Left" Margin="101,347,0,0" TextWrapping="Wrap" Text="Nazwa Zawodów" VerticalAlignment="Top" Height="28" Width="133" FontWeight="Bold" FontSize="16" Foreground="White"/>
+        <TextBlock x:Name="CompetitionNameBlock" HorizontalAlignment="Left" Margin="101,391,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="28" Width="133" FontWeight="Bold" FontSize="16" Foreground="White"><Run Text="Konkurencja"/><LineBreak/><Run/></TextBlock>
+        <TextBlock x:Name="PlayerNumberBlock" HorizontalAlignment="Left" Margin="101,437,0,0" TextWrapping="Wrap" Text="Numer Startowy" VerticalAlignment="Top" Height="28" Width="133" FontWeight="Bold" FontSize="16" Foreground="White"/>
+        <TextBlock x:Name="ScoreBlock" HorizontalAlignment="Left" Margin="573,347,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="28" Width="133" FontWeight="Bold" FontSize="16" Foreground="White"><Run Text="Wynik"/><LineBreak/><Run/></TextBlock>
+        <TextBlock x:Name="XBlock" HorizontalAlignment="Left" Margin="573,391,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="28" Width="133" FontWeight="Bold" FontSize="16" Text="X" Foreground="White"/>
+        <TextBlock x:Name="TimeBlock" HorizontalAlignment="Left" Margin="573,437,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="28" Width="133" FontWeight="Bold" FontSize="16" Foreground="White"><Run Text="Czas"/><LineBreak/><Run/><LineBreak/><Run/></TextBlock>
+        <ComboBox x:Name="TurnamentComboBox" HorizontalAlignment="Left" Height="28" Margin="262,347,0,0" VerticalAlignment="Top" Width="228" BorderBrush="{x:Null}" Foreground="#FF0F0F2D"/>
+        <ComboBox x:Name="CompetitionComboBox" HorizontalAlignment="Left" Height="28" Margin="262,391,0,0" VerticalAlignment="Top" Width="228" Foreground="#FF0F0F2D" BorderBrush="{x:Null}"/>
+        <TextBox x:Name="ScoreTextBox" HorizontalAlignment="Left" Height="28" Margin="644,347,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="228" FontSize="16" BorderBrush="{x:Null}" SelectionBrush="{x:Null}" Foreground="#FF0F0F2D"/>
+        <TextBox x:Name="XTextBox" HorizontalAlignment="Left" Height="28" Margin="644,391,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="228" FontSize="16" RenderTransformOrigin="0.555,0.48" BorderBrush="{x:Null}" SelectionBrush="{x:Null}" Foreground="#FF0F0F2D"/>
+        <TextBox x:Name="PlayerTextBox" HorizontalAlignment="Left" Height="28" Margin="262,437,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="228" FontSize="16" BorderBrush="{x:Null}" SelectionBrush="{x:Null}" Foreground="#FF0F0F2D"/>
+        <TextBox x:Name="TimeTextBox" HorizontalAlignment="Left" Height="28" Margin="644,437,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="228" FontSize="16" BorderBrush="{x:Null}" SelectionBrush="{x:Null}" Foreground="#FF0F0F2D"/>
+        <DataGrid x:Name="scoreDataGrid" AutoGenerateColumns="False" EnableRowVirtualization="True" ItemsSource="{Binding}" Margin="10,10,10,254.5" RowDetailsVisibilityMode="VisibleWhenSelected" CanUserAddRows="false" Background="White" BorderBrush="{x:Null}" Foreground="#FF0F0F2D">
             <DataGrid.Columns>
                 <DataGridTextColumn x:Name="idColumn" Binding="{Binding Id}" Header="Id" IsReadOnly="True" Width="SizeToHeader"/>
                 <DataGridTextColumn x:Name="turnamentColumn" Binding="{Binding Turnament}" Header="Zawody" Width="120"/>
@@ -39,5 +35,53 @@
                 <DataGridTextColumn x:Name="finalScoreColumn" Binding="{Binding FinalScore}" Header="Factor" Width="100"/>
             </DataGrid.Columns>
         </DataGrid>
+        <Button x:Name="BackButton" Content="Powrót" HorizontalAlignment="Left" Height="50" Margin="90,496,0,0" VerticalAlignment="Top" Width="125" Click="Back_Button_Click" FontWeight="Bold" FontSize="18" Background="#FFFF4C70" Foreground="White" BorderBrush="#FF0F0F2D">
+            <Button.Template>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border 
+                        CornerRadius="20"
+                        Background="{TemplateBinding Background}">
+                        <ContentPresenter VerticalAlignment="Center"
+                            HorizontalAlignment="Center"/>
+                    </Border>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+        <Button x:Name="SendButton" Content="Wyślij" HorizontalAlignment="Left" Height="50" Margin="311,496,0,0" VerticalAlignment="Top" Width="125" Click="Send_Button_Click" FontWeight="Bold" FontSize="18" Background="#FF289DFF" Foreground="#FF0F0F2D" BorderBrush="#FF0F0F2D">
+            <Button.Template>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border 
+                        CornerRadius="20"
+                        Background="{TemplateBinding Background}">
+                        <ContentPresenter VerticalAlignment="Center"
+                            HorizontalAlignment="Center"/>
+                    </Border>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+        <Button x:Name="UpdateButton" Content="Aktualizuj" HorizontalAlignment="Left" Height="50" Margin="543,496,0,0" VerticalAlignment="Top" Width="125" Click="Update_Button_Click" FontWeight="Bold" FontSize="18" Background="#FF289DFF" Foreground="#FF0F0F2D" BorderBrush="#FF0F0F2D">
+            <Button.Template>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border 
+                        CornerRadius="20"
+                        Background="{TemplateBinding Background}">
+                        <ContentPresenter VerticalAlignment="Center"
+                            HorizontalAlignment="Center"/>
+                    </Border>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+        <Button x:Name="DeleteButton" Content="Usuń" Height="50" Margin="780,496,90,0" VerticalAlignment="Top" Click="Delete_Button_Click" FontWeight="Bold" FontSize="18" Background="#FFFF4C70" Foreground="White" BorderBrush="#FF0F0F2D">
+            <Button.Template>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border 
+                        CornerRadius="20"
+                        Background="{TemplateBinding Background}">
+                        <ContentPresenter VerticalAlignment="Center"
+                            HorizontalAlignment="Center"/>
+                    </Border>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
     </Grid>
 </Window>

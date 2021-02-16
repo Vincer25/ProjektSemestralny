@@ -10,24 +10,20 @@
         <local:DatabaseDataSet x:Key="databaseDataSet"/>
         <CollectionViewSource x:Key="playersViewSource" Source="{Binding Players, Source={StaticResource databaseDataSet}}"/>
     </Window.Resources>
-    <Grid DataContext="{StaticResource playersViewSource}">
-        <Button x:Name="BackButton" Content="Powrót" HorizontalAlignment="Left" Height="50" Margin="90,484,0,0" VerticalAlignment="Top" Width="125" Click="Back_Button_Click"/>
-        <Button x:Name="DeleteButton" Content="Usuń" Margin="779,484,90,0" VerticalAlignment="Top" Height="50" Click="Delete_Button_Click" Background="Red"/>
-        <Button x:Name="UpdateButton" Content="Aktualizuj" HorizontalAlignment="Left" Height="50" Margin="557,484,0,0" VerticalAlignment="Top" Width="125" Click="Update_Button_Click"/>
-        <Button x:Name="SendButton" Content="Wyślij" HorizontalAlignment="Left" Height="50" Margin="311,484,0,0" VerticalAlignment="Top" Width="125" Click="Send_Button_Click"/>
-        <TextBlock x:Name="PlayerNameBlock" HorizontalAlignment="Left" Margin="86,327,0,0" TextWrapping="Wrap" Text="Imię" VerticalAlignment="Top" Height="28" Width="100" FontWeight="Bold" FontSize="16"/>
-        <TextBlock x:Name="PlayerSecondNameBlock" HorizontalAlignment="Left" Margin="86,371,0,0" TextWrapping="Wrap" Text="Nazwisko" VerticalAlignment="Top" Height="28" Width="100" FontWeight="Bold" FontSize="16"/>
-        <TextBlock x:Name="ClubBlock" HorizontalAlignment="Left" Margin="86,418,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="28" Width="100" FontWeight="Bold" FontSize="16"><Run Text="Klub"/><LineBreak/><Run/></TextBlock>
-        <TextBlock x:Name="LicenseBlock" HorizontalAlignment="Left" Margin="524,327,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="28" Width="124" FontWeight="Bold" FontSize="16"><Run Text="Numer Licencji"/><LineBreak/><Run/></TextBlock>
-        <TextBlock x:Name="PhoneNumberBlock" HorizontalAlignment="Left" Margin="524,372,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="42" Width="124" FontWeight="Bold" FontSize="16"><Run Text="Numer Telefonu"/><LineBreak/><Run/></TextBlock>
-        <TextBlock x:Name="EmailBlock" HorizontalAlignment="Left" Margin="524,419,0,0" TextWrapping="Wrap" Text="E-mail" VerticalAlignment="Top" Height="28" Width="100" FontWeight="Bold" FontSize="16"/>
-        <TextBox x:Name="PlayerEmailBox" HorizontalAlignment="Left" Height="28" Margin="666,419,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="228" FontSize="16"/>
-        <TextBox x:Name="PlayerPhoneNumberBox" HorizontalAlignment="Left" Height="28" Margin="666,372,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="228" FontSize="16"/>
-        <TextBox x:Name="PlayerLicenseBox" HorizontalAlignment="Left" Height="28" Margin="666,327,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="228" FontSize="16"/>
-        <TextBox x:Name="PlayerClubBox" HorizontalAlignment="Left" Height="28" Margin="228,418,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="228" FontSize="16"/>
-        <TextBox x:Name="PlayerSecondNameBox" HorizontalAlignment="Left" Height="28" Margin="228,371,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="228" FontSize="16"/>
-        <TextBox x:Name="PlayerNameBox" HorizontalAlignment="Left" Height="28" Margin="228,327,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="228" FontSize="16"/>
-        <DataGrid x:Name="playersDataGrid" AutoGenerateColumns="False" EnableRowVirtualization="True" ItemsSource="{Binding}" Margin="10,10,10,274.5" RowDetailsVisibilityMode="VisibleWhenSelected" CanUserAddRows="false">
+    <Grid DataContext="{StaticResource playersViewSource}" Background="#FF0F0F2D">
+        <TextBlock x:Name="PlayerNameBlock" HorizontalAlignment="Left" Margin="90,327,0,0" TextWrapping="Wrap" Text="Imię" VerticalAlignment="Top" Height="28" Width="100" FontWeight="Bold" FontSize="16" Foreground="White"/>
+        <TextBlock x:Name="PlayerSecondNameBlock" HorizontalAlignment="Left" Margin="90,371,0,0" TextWrapping="Wrap" Text="Nazwisko" VerticalAlignment="Top" Height="28" Width="100" FontWeight="Bold" FontSize="16" Foreground="White"/>
+        <TextBlock x:Name="ClubBlock" HorizontalAlignment="Left" Margin="90,418,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="28" Width="100" FontWeight="Bold" FontSize="16" Foreground="White"><Run Text="Klub"/><LineBreak/><Run/></TextBlock>
+        <TextBlock x:Name="LicenseBlock" HorizontalAlignment="Left" Margin="524,327,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="28" Width="124" FontWeight="Bold" FontSize="16" Foreground="White"><Run Text="Numer Licencji"/><LineBreak/><Run/></TextBlock>
+        <TextBlock x:Name="PhoneNumberBlock" HorizontalAlignment="Left" Margin="524,372,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="42" Width="124" FontWeight="Bold" FontSize="16" Foreground="White"><Run Text="Numer Telefonu"/><LineBreak/><Run/></TextBlock>
+        <TextBlock x:Name="EmailBlock" HorizontalAlignment="Left" Margin="524,419,0,0" TextWrapping="Wrap" Text="E-mail" VerticalAlignment="Top" Height="28" Width="100" FontWeight="Bold" FontSize="16" Foreground="White"/>
+        <TextBox x:Name="PlayerEmailBox" HorizontalAlignment="Left" Height="28" Margin="666,419,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="228" FontSize="16" Foreground="#FF0F0F2D" SelectionBrush="{x:Null}"/>
+        <TextBox x:Name="PlayerPhoneNumberBox" HorizontalAlignment="Left" Height="28" Margin="666,372,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="228" FontSize="16" SelectionBrush="{x:Null}" Foreground="#FF0F0F2D"/>
+        <TextBox x:Name="PlayerLicenseBox" HorizontalAlignment="Left" Height="28" Margin="666,327,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="228" FontSize="16" SelectionBrush="{x:Null}" Foreground="#FF0F0F2D"/>
+        <TextBox x:Name="PlayerClubBox" HorizontalAlignment="Left" Height="28" Margin="216,418,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="228" FontSize="16" BorderBrush="{x:Null}" SelectionBrush="{x:Null}" Foreground="#FF0F0F2D"/>
+        <TextBox x:Name="PlayerSecondNameBox" HorizontalAlignment="Left" Height="28" Margin="216,371,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="228" FontSize="16" BorderBrush="{x:Null}" SelectionBrush="{x:Null}" Foreground="#FF0F0F2D"/>
+        <TextBox x:Name="PlayerNameBox" HorizontalAlignment="Left" Height="28" Margin="216,327,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="228" FontSize="16" BorderBrush="{x:Null}" SelectionBrush="{x:Null}" Foreground="#FF0F0F2D"/>
+        <DataGrid x:Name="playersDataGrid" AutoGenerateColumns="False" EnableRowVirtualization="True" ItemsSource="{Binding}" Margin="10,10,10,274.5" RowDetailsVisibilityMode="VisibleWhenSelected" CanUserAddRows="false" BorderBrush="{x:Null}" Foreground="#FF0F0F2D" Background="White">
             <DataGrid.Columns>
                 <DataGridTextColumn x:Name="idColumn" Binding="{Binding Id}" Header="Numer Startowy" IsReadOnly="True" Width="SizeToHeader"/>
                 <DataGridTextColumn x:Name="playerNameColumn" Binding="{Binding PlayerName}" Header="Imię" Width= "100"/>
@@ -38,5 +34,53 @@
                 <DataGridTextColumn x:Name="emailColumn" Binding="{Binding Email}" Header="E-mail" Width="200"/>
             </DataGrid.Columns>
         </DataGrid>
+        <Button x:Name="BackButton" Content="Powrót" HorizontalAlignment="Left" Height="50" Margin="90,484,0,0" VerticalAlignment="Top" Width="125" Click="Back_Button_Click" FontWeight="Bold" FontSize="18" Background="#FFFF4C70" Foreground="White" BorderBrush="#FF0F0F2D">
+            <Button.Template>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border 
+                        CornerRadius="20"
+                        Background="{TemplateBinding Background}">
+                        <ContentPresenter VerticalAlignment="Center"
+                            HorizontalAlignment="Center"/>
+                    </Border>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+        <Button x:Name="SendButton" Content="Wyślij" HorizontalAlignment="Left" Height="50" Margin="306,484,0,0" VerticalAlignment="Top" Width="125" Click="Send_Button_Click" FontWeight="Bold" FontSize="18" Background="#FF289DFF" Foreground="#FF0F0F2D" BorderBrush="#FF0F0F2D">
+            <Button.Template>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border 
+                        CornerRadius="20"
+                        Background="{TemplateBinding Background}">
+                        <ContentPresenter VerticalAlignment="Center"
+                            HorizontalAlignment="Center"/>
+                    </Border>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+        <Button x:Name="UpdateButton" Content="Aktualizuj" HorizontalAlignment="Left" Height="50" Margin="543,484,0,0" VerticalAlignment="Top" Width="125" Click="Update_Button_Click" FontWeight="Bold" FontSize="18" Background="#FF289DFF" Foreground="#FF0F0F2D" BorderBrush="#FF0F0F2D">
+            <Button.Template>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border 
+                        CornerRadius="20"
+                        Background="{TemplateBinding Background}">
+                        <ContentPresenter VerticalAlignment="Center"
+                            HorizontalAlignment="Center"/>
+                    </Border>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+        <Button x:Name="DeleteButton" Content="Usuń" Height="50" Margin="769,484,90,0" VerticalAlignment="Top" Click="Delete_Button_Click" FontWeight="Bold" FontSize="18" Background="#FFFF4C70" Foreground="White" BorderBrush="#FF0F0F2D">
+            <Button.Template>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border 
+                        CornerRadius="20"
+                        Background="{TemplateBinding Background}">
+                        <ContentPresenter VerticalAlignment="Center"
+                            HorizontalAlignment="Center"/>
+                    </Border>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
     </Grid>
 </Window>
