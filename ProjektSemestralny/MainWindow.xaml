@@ -7,8 +7,8 @@
         mc:Ignorable="d"
         Title="Turnament Manager" Height="600" Width="1000">
     <Grid>
-        <Button Content="Zawody" HorizontalAlignment="Left" Height="89" Margin="52,231,0,0" VerticalAlignment="Top" Width="258" Click="Button_Click_1" FontWeight="Bold" FontSize="24"/>
         <TextBlock Height="104" Margin="81,51,81,0" TextWrapping="Wrap" VerticalAlignment="Top" FontWeight="Bold" FontSize="72"><Run Text="Turnament Ma"/><Run Text="nager"/><Run Text=" 1.0"/></TextBlock>
+        <Button Content="Zawody" HorizontalAlignment="Left" Height="89" Margin="52,231,0,0" VerticalAlignment="Top" Width="258" Click="Button_Click_1" FontWeight="Bold" FontSize="24"/>
         <Button Content="Zawodnicy" HorizontalAlignment="Left" Height="89" Margin="368,231,0,0" VerticalAlignment="Top" Width="258" Click="Button_Click_2" FontWeight="Bold" FontSize="24"/>
         <Button Content="Konkurencje" HorizontalAlignment="Left" Height="89" Margin="677,231,0,0" VerticalAlignment="Top" Width="258" Click="Button_Click_3" FontWeight="Bold" FontSize="24"/>
         <Button Content="Wyniki" HorizontalAlignment="Left" Height="89" Margin="368,382,0,0" VerticalAlignment="Top" Width="258" Click="Button_Click_4" FontWeight="Bold" FontSize="24"/>

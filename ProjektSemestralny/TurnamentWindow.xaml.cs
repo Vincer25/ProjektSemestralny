@@ -62,7 +62,7 @@ namespace ProjektSemestralny
             }
         }
 
-        private void Save_Button_Click(object sender, RoutedEventArgs e)
+        private void Update_Button_Click(object sender, RoutedEventArgs e)
         {
             db.SaveChanges();
             this.turnamentDataGrid.ItemsSource = db.Turnament.ToList();

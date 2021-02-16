@@ -17,7 +17,9 @@
         <DatePicker x:Name="TurnamentDateBox" HorizontalAlignment="Left" Margin="450,399,0,0" VerticalAlignment="Top" Width="224" Height="28"/>
         <Button x:Name="SendButton" Content="Wyślij" HorizontalAlignment="Left" Height="50" Margin="311,482,0,0" VerticalAlignment="Top" Width="125" Click="Send_Button_Click"/>
         <Button x:Name="BackButton" Content="Powrót" HorizontalAlignment="Left" Height="50" Margin="80,482,0,0" VerticalAlignment="Top" Width="125" Click="Back_Button_Click"/>
-        <DataGrid x:Name="turnamentDataGrid" AutoGenerateColumns="False" EnableRowVirtualization="True" ItemsSource="{Binding}" Margin="10,10,10,245.5" RowDetailsVisibilityMode="VisibleWhenSelected">
+        <Button x:Name="DeleteButton" Content="Usuń" Height="50" Margin="790,482,80,0" VerticalAlignment="Top" Background="#FFE40303" Click="Delete_Button_Click"/>
+        <Button x:Name="UpdateButton" Content="Aktualizuj" HorizontalAlignment="Left" Height="50" Margin="549,482,0,0" VerticalAlignment="Top" Width="125" Click="Update_Button_Click"/>
+        <DataGrid x:Name="turnamentDataGrid" AutoGenerateColumns="False" EnableRowVirtualization="True" ItemsSource="{Binding}" Margin="10,10,10,245.5" RowDetailsVisibilityMode="VisibleWhenSelected" CanUserAddRows="false">
             <DataGrid.Columns>
                 <DataGridTextColumn x:Name="turnamentNameColumn" Binding="{Binding TurnamentName}" Header="Nazwa Zawodów" Width="250"/>
                 <DataGridTemplateColumn x:Name="turnamentDateColumn" Header="Data Zawodów" Width="200">
@@ -29,7 +31,5 @@
                 </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
-        <Button x:Name="DeleteButton" Content="Usuń" Height="50" Margin="790,482,80,0" VerticalAlignment="Top" Background="#FFE40303" Click="Delete_Button_Click"/>
-        <Button x:Name="SaveButton" Content="Zapisz" HorizontalAlignment="Left" Height="50" Margin="549,482,0,0" VerticalAlignment="Top" Width="125" Click="Save_Button_Click"/>
     </Grid>
 </Window>

@@ -7,8 +7,6 @@ D:\C#\ProjektSemestralny\ProjektSemestralny\obj\Debug\App.g.cs
 D:\C#\ProjektSemestralny\ProjektSemestralny\obj\Debug\ProjektSemestralny_Content.g.cs
 D:\C#\ProjektSemestralny\ProjektSemestralny\obj\Debug\ProjektSemestralny_MarkupCompile.cache
 D:\C#\ProjektSemestralny\ProjektSemestralny\obj\Debug\ProjektSemestralny_MarkupCompile.lref
-D:\C#\ProjektSemestralny\ProjektSemestralny\bin\Debug\Database.mdf
-D:\C#\ProjektSemestralny\ProjektSemestralny\bin\Debug\Database_log.ldf
 D:\C#\ProjektSemestralny\ProjektSemestralny\bin\Debug\ProjektSemestralny.exe.config
 D:\C#\ProjektSemestralny\ProjektSemestralny\bin\Debug\ProjektSemestralny.exe
 D:\C#\ProjektSemestralny\ProjektSemestralny\bin\Debug\ProjektSemestralny.pdb
@@ -30,3 +28,5 @@ D:\C#\ProjektSemestralny\ProjektSemestralny\obj\Debug\ProjektSemestralny.csproj.
 D:\C#\ProjektSemestralny\ProjektSemestralny\obj\Debug\ProjektSemestralny.exe
 D:\C#\ProjektSemestralny\ProjektSemestralny\obj\Debug\ProjektSemestralny.pdb
 D:\C#\ProjektSemestralny\ProjektSemestralny\obj\Debug\GeneratedInternalTypeHelper.g.cs
+D:\C#\ProjektSemestralny\ProjektSemestralny\bin\Debug\Database.mdf
+D:\C#\ProjektSemestralny\ProjektSemestralny\bin\Debug\Database_log.ldf
