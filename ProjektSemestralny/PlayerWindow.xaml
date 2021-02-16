@@ -36,5 +36,6 @@
                 <DataGridTextColumn x:Name="emailColumn" Binding="{Binding Email}" Header="E-mail" Width="200"/>
             </DataGrid.Columns>
         </DataGrid>
+        <Button Content="Button" HorizontalAlignment="Left" Margin="48,429,0,0" VerticalAlignment="Top" Width="152" Height="70" Click="Button_Click_3"/>
     </Grid>
 </Window>

@@ -61,5 +61,21 @@ namespace ProjektSemestralny
             System.Windows.Data.CollectionViewSource turnamentViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("turnamentViewSource")));
             turnamentViewSource.View.MoveCurrentToFirst();
         }
+
+        private void Button_Click_3(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                int id = (turnamentDataGrid.SelectedItem as Turnament).Id;
+                var delete = db.Turnament.Where(m => m.Id == id).Single();
+                db.Turnament.Remove(delete);
+            }
+            catch (System.NullReferenceException)
+            {
+                MessageBox.Show("Nie wybrano rekordu", "Uwaga");
+            }
+            db.SaveChanges();
+            this.turnamentDataGrid.ItemsSource = db.Turnament.ToList();
+        }
     }
 }

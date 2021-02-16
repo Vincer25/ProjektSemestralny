@@ -29,5 +29,6 @@
                 </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
+        <Button Content="Button" HorizontalAlignment="Left" Height="86" Margin="173,296,0,0" VerticalAlignment="Top" Width="237" Background="Red" Click="Button_Click_3"/>
     </Grid>
 </Window>

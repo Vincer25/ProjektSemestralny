@@ -116,5 +116,21 @@ namespace ProjektSemestralny
             System.Windows.Data.CollectionViewSource scoreViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("scoreViewSource")));
             scoreViewSource.View.MoveCurrentToFirst();
         }
+
+        private void Button_Click_3(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                int id = (scoreDataGrid.SelectedItem as Score).Id;
+                var delete = db.Score.Where(m => m.Id == id).Single();
+                db.Score.Remove(delete);
+            }
+            catch (System.NullReferenceException)
+            {
+                MessageBox.Show("Nie wybrano rekordu", "Uwaga");
+            }
+            db.SaveChanges();
+            this.scoreDataGrid.ItemsSource = db.Score.ToList();
+        }
     }
 }

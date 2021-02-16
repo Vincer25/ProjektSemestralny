@@ -23,5 +23,6 @@
                 <DataGridTextColumn x:Name="competitionNameColumn" Binding="{Binding CompetitionName}" Header="Nazwa Konkurencji" Width="200"/>
             </DataGrid.Columns>
         </DataGrid>
+        <Button Content="Button" HorizontalAlignment="Left" Height="56" Margin="133,309,0,0" VerticalAlignment="Top" Width="151" Click="Button_Click_3"/>
     </Grid>
 </Window>

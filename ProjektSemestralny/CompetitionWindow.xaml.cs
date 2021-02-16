@@ -64,5 +64,21 @@ namespace ProjektSemestralny
             System.Windows.Data.CollectionViewSource competitionsViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("competitionsViewSource")));
             competitionsViewSource.View.MoveCurrentToFirst();
         }
+
+        private void Button_Click_3(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                string id = (competitionsDataGrid.SelectedItem as Competitions).Cut;
+                var delete = db.Competitions.Where(m => m.Cut == id).Single();
+                db.Competitions.Remove(delete);
+            }
+            catch (System.NullReferenceException)
+            {
+                MessageBox.Show("Nie wybrano rekordu", "Uwaga");
+            }
+            db.SaveChanges();
+            this.competitionsDataGrid.ItemsSource = db.Competitions.ToList();
+        }
     }
 }

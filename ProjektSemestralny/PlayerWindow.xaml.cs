@@ -72,5 +72,21 @@ namespace ProjektSemestralny
             System.Windows.Data.CollectionViewSource playersViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("playersViewSource")));
             playersViewSource.View.MoveCurrentToFirst();
         }
+
+        private void Button_Click_3(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                int id = (playersDataGrid.SelectedItem as Players).Id;
+                var delete = db.Players.Where(m => m.Id == id).Single();
+                db.Players.Remove(delete);
+            }
+            catch (System.NullReferenceException)
+            {
+                MessageBox.Show("Nie wybrano rekordu", "Uwaga");
+            }
+            db.SaveChanges();
+            this.playersDataGrid.ItemsSource = db.Players.ToList();
+        }
     }
 }

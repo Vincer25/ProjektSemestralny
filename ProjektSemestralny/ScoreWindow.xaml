@@ -37,5 +37,6 @@
                 <DataGridTextColumn x:Name="finalScoreColumn" Binding="{Binding FinalScore}" Header="Factor" Width="SizeToHeader"/>
             </DataGrid.Columns>
         </DataGrid>
+        <Button Content="Button" HorizontalAlignment="Left" Height="55" Margin="171,412,0,0" VerticalAlignment="Top" Width="139" Click="Button_Click_3"/>
     </Grid>
 </Window>
