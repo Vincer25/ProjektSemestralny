@@ -88,7 +88,7 @@ namespace ProjektSemestralny
                     playerTime = Convert.ToDecimal(TimeTextBox.Text);
                     score.Time = playerTime;
                     if (playerTime != 0)
-                        score.FinalScore = Convert.ToInt32(ScoreTextBox.Text.Trim()) / playerTime;
+                        score.FinalScore = Math.Round(Convert.ToInt32(ScoreTextBox.Text.Trim()) / playerTime, 4);
                     else
                         score.FinalScore = 0;
                 }
