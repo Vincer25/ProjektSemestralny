@@ -21,8 +21,6 @@ namespace ProjektSemestralny
     {
         DatabaseEntities db = new DatabaseEntities();
 
-        bool stopInsert = false;
-
         public ScoreWindow()
         {
             InitializeComponent();
@@ -56,14 +54,14 @@ namespace ProjektSemestralny
         {
             Score score = new Score();
 
-            if (TurnamentComboBox.SelectedItem == null || CompetitionComboBox.SelectedItem == null)
+            int playerNumber;
+            decimal playerTime;
+
+            try
             {
-                stopInsert = true;
-                MessageBox.Show("Nazwa zawodów oraz nazwa konkurencji nie mogą pozostać niewybrane", "Uwaga");
-            }
-            else
-            {
-                stopInsert = false;
+                playerNumber = Convert.ToInt32(PlayerTextBox.Text);
+                score.PlayerScore = Convert.ToInt32(ScoreTextBox.Text.Trim());
+
                 score.Turnament = Convert.ToInt32(db.Turnament
                                 .Where(s => s.TurnamentName == TurnamentComboBox.SelectedItem.ToString())
                                 .Select(u => u.Id)
@@ -73,48 +71,37 @@ namespace ProjektSemestralny
                                 .Where(s => s.CompetitionName == CompetitionComboBox.SelectedItem.ToString())
                                 .Select(u => u.Cut)
                                 .SingleOrDefault());
-            }
 
-            if (PlayerTextBox.Text == "" || ScoreTextBox.Text == "")
-            {
-                stopInsert = true;
-                MessageBox.Show("Numer startowy i wynik nie mogą pozostać puste", "Uwaga");
-            }
-            else
-            {
-                int playerNumber = Convert.ToInt32(PlayerTextBox.Text);
+                if (XTextBox.Text != "")
+                    score.X = Convert.ToInt32(XTextBox.Text.Trim());
+
                 if (db.Players.Any(o => o.Id == playerNumber))
-                {
-                    stopInsert = false;
                     score.Player = Convert.ToInt32(PlayerTextBox.Text.Trim());
-                    score.PlayerScore = Convert.ToInt32(ScoreTextBox.Text.Trim());
-
-                    if (TimeTextBox.Text != "")
-                    {
-                        decimal playerTime = Convert.ToDecimal(TimeTextBox.Text);
-                        score.Time = playerTime;
-                        if (playerTime != 0)
-                            score.FinalScore = Convert.ToInt32(ScoreTextBox.Text.Trim()) / playerTime;
-                        else
-                            score.FinalScore = 0;
-                    }
-                }
                 else
                 {
-                    stopInsert = true;
                     MessageBox.Show("Numer startowy nie istnieje w bazie", "Uwaga");
+                    return;
+                }
+
+                if (TimeTextBox.Text != "")
+                {
+                    playerTime = Convert.ToDecimal(TimeTextBox.Text);
+                    score.Time = playerTime;
+                    if (playerTime != 0)
+                        score.FinalScore = Convert.ToInt32(ScoreTextBox.Text.Trim()) / playerTime;
+                    else
+                        score.FinalScore = 0;
                 }
             }
-
-            if (XTextBox.Text != "")
-                score.X = Convert.ToInt32(XTextBox.Text.Trim());
-
-            if (stopInsert == false)
+            catch (Exception)
             {
-                db.Score.Add(score);
-                db.SaveChanges();
-                this.scoreDataGrid.ItemsSource = db.Score.ToList();
+                MessageBox.Show("Wprowadzono błedny typ danych lub pozostawiono puste pole wymagane", "Uwaga");
+                return;
             }
+
+            db.Score.Add(score);
+            db.SaveChanges();
+            this.scoreDataGrid.ItemsSource = db.Score.ToList();
         }
 
         private void Delete_Button_Click(object sender, RoutedEventArgs e)

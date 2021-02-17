@@ -49,20 +49,21 @@ namespace ProjektSemestralny
             {
                 MessageBox.Show("Pola nie mogą pozostać puste", "Uwaga");
             }
+            else if (db.Competitions.Any(o => o.Cut == ShortBox.Text))
+            {
+                MessageBox.Show("Wprowadzony skrót już istnieje", "Uwaga");
+            }
             else
             {
                 Competitions competitions = new Competitions();
-
                 competitions.Cut = ShortBox.Text.Trim();
                 competitions.CompetitionName = NameBox.Text.Trim();
-
                 db.Competitions.Add(competitions);
                 db.SaveChanges();
                 this.competitionsDataGrid.ItemsSource = db.Competitions.ToList();
-
                 ShortBox.Text = "";
                 NameBox.Text = "";
-            }
+            }  
         }
 
         private void Update_Button_Click(object sender, RoutedEventArgs e)
